@@ -8,11 +8,25 @@ root.configure(bg="#fff")
 root.resizable(False,False)
 
 def singin():
-    username=user.get()
-    password=code.get()
+    Nombre=user.get()
+    Contrasena=code.get()
 
-    if username=='admin' and pasword=='1234':
-        print('hello world')
+    if (Nombre == 'admin') and (Contrasena == '1234'):
+        screen=Toplevel(root)
+        screen.title("App")
+        screen.geometry('925x500+300+200')
+
+        Label(screen, text='Hello Everyone', bg='#fff' ,font=('Calibri (Body)',50,'bold')).pack(expand=True)
+
+        screen.mainloop()
+    elif (Nombre !='admin') and (Contrasena !='1234'):
+        messagebox.showerror("Invalid", "invalid username and password")
+    
+    elif (Contrasena!='1234'):
+        messagebox.showerror("Invalid", "invalid password")
+
+    elif (Nombre!='admin'):
+        messagebox.showerror("Invalid", "invalid username")
 
 img = PhotoImage(file='login.png')
 img.zoom(2)
@@ -33,11 +47,11 @@ def on_enter(e):
 def on_leave(e):
     name=user.get()
     if name=='':
-        user.insert(0, 'Nombre de Usuario')
+        user.insert(0, 'Nombre')
 
 user = Entry(frame, width=25 ,fg='black' ,border=0, bg='white' ,font=('Microsoft YaHei UI Light' ,11))
 user.place(x=30 ,y=80)
-user.insert(0,'Nombre de Usuario')
+user.insert(0,'Nombre')
 user.bind('<FocusIn>', on_enter)
 user.bind('<FocusOut>', on_leave)
 
