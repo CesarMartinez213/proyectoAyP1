@@ -1,0 +1,1 @@
+{'nacimiento', 'cedula', 'nombre', 'estadoN', 'Gender', 'contraseña'}
